@@ -2,9 +2,7 @@ from google.cloud import pubsub_v1      # pip install google-cloud-pubsub  ##to 
 import glob                             # for searching for json file 
 import base64
 import os 
-import random
-import numpy as np                      # pip install numpy    ##to install
-import time
+from dotenv import load_dotenv   # pip install python-dotenv
 
 # Search the current directory for the JSON file (including the service account key) 
 # to set the GOOGLE_APPLICATION_CREDENTIALS environment variable.
@@ -12,8 +10,8 @@ files=glob.glob("*.json")
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=files[0];
 
 # Set the project_id with your project ID
-project_id="";
-topic_name = "Image2Redis";   # change it for your topic name if needed
+project_id="eda-project-509219";
+topic_name = "Image2Redis-dabash";   # change it for your topic name if needed
 
 
 # create a publisher and get the topic path for the publisher

@@ -1,14 +1,20 @@
 import redis        # pip install redis
-import io;
 import base64
+import os
+from dotenv import load_dotenv   # pip install python-dotenv
 
-ip=""
-r = redis.Redis(host=ip, port=6379, db=0,password='sofe4630u')
+load_dotenv()
 
-value=r.get('image');
-decoded_value=base64.b64decode(value);
+ip       = os.getenv('REDIS_HOST')
+port     = int(os.getenv('REDIS_PORT', 6379))
+password = os.getenv('REDIS_PASSWORD')
+
+r = redis.Redis(host=ip, port=port, db=0, password=password)
+
+value=r.get('image')
+decoded_value=base64.b64decode(value)
 
 with open("./received.jpg", "wb") as f:
-    f.write(decoded_value);
+    f.write(decoded_value)
     
 print('Image received, check ./received.jpg')

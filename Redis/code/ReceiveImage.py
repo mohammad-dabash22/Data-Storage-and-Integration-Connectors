@@ -1,8 +1,14 @@
 import redis        # pip install redis
-import io;
+import os
+from dotenv import load_dotenv   # pip install python-dotenv
 
-ip=""
-r = redis.Redis(host=ip, port=6379, db=0,password='sofe4630u')
+load_dotenv()
+
+ip       = os.getenv('REDIS_HOST')
+port     = int(os.getenv('REDIS_PORT', 6379))
+password = os.getenv('REDIS_PASSWORD')
+
+r = redis.Redis(host=ip, port=port, db=0, password=password)
 
 value=r.get('OntarioTech');
 

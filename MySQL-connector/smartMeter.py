@@ -12,8 +12,8 @@ files=glob.glob("*.json")
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=files[0];
 
 # Set the project_id with your project ID
-project_id="";
-topic_name = "smartMeterReadings";   # change it for your topic name if needed
+project_id="eda-project-509219";
+topic_name = "smartMeterReadings-dabash";   # change it for your topic name if needed
 
 # create a publisher and get the topic path for the publisher
 publisher = pubsub_v1.PublisherClient()

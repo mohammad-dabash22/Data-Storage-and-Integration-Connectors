@@ -81,6 +81,7 @@ def main():
 
         prev_count = 0
         while True:
+            conn.commit()
             count = show_total_count(cursor)
 
             if count > prev_count:
